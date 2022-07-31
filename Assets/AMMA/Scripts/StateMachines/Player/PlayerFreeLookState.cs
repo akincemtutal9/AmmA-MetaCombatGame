@@ -2,14 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerTestState : PlayerBaseState
+public class PlayerFreeLookState : PlayerBaseState
 {
-    public PlayerTestState(PlayerStateMachine stateMachine) : base(stateMachine) { }
+    private readonly int FreeLookSpeedHash = Animator.StringToHash("FreeLookSpeed");
+
+    private const float AnimatorDampTime = 0.1f;
+    public PlayerFreeLookState(PlayerStateMachine stateMachine) : base(stateMachine) { }
 
     public override void Enter()
     {
-        Debug.Log("Enter");
-        
+        Debug.Log("Enter");    
     }
     public override void Tick(float deltaTime)
     {
@@ -19,24 +21,21 @@ public class PlayerTestState : PlayerBaseState
         
         if (stateMachine.InputReader.MovementValue == Vector2.zero) 
         {
-            stateMachine.Animator.SetFloat("FreeLookSpeed", 0, 0.1f, deltaTime);
+            stateMachine.Animator.SetFloat(FreeLookSpeedHash, 0, AnimatorDampTime, deltaTime);
             
             return; 
         }
         else 
-        { 
-            stateMachine.transform.rotation = Quaternion.LookRotation(movement); // Player will look at the axis which he/she is going
-            stateMachine.Animator.SetFloat("FreeLookSpeed", 1, 0.1f, deltaTime);
-        } 
+        {
+            stateMachine.Animator.SetFloat(FreeLookSpeedHash, 1, AnimatorDampTime, deltaTime);
+            FaceMovementDirection(movement.normalized , deltaTime); // Player will look at the axis which he/she is going
+        }
 
     }
     public override void Exit()
     {
         Debug.Log("Exit");
-
-
     }
-
     private Vector3 CalculateMovement()
     {
         Vector3 forward = stateMachine.MainCameraTransform.forward;
@@ -50,5 +49,8 @@ public class PlayerTestState : PlayerBaseState
 
         return forward * stateMachine.InputReader.MovementValue.y + right * stateMachine.InputReader.MovementValue.x; 
     }
-
+    private void FaceMovementDirection(Vector3 movement , float deltaTime)
+    {
+        stateMachine.transform.rotation = Quaternion.Lerp(stateMachine.transform.rotation, Quaternion.LookRotation(movement), deltaTime * stateMachine.RotationDamping);
+    }
 }
