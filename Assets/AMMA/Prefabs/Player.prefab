@@ -1326,6 +1326,37 @@ Transform:
   m_Father: {fileID: 4463275973878021274}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4839596251455096573
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9155678381231830935}
+  m_Layer: 0
+  m_Name: CameraFocusHips
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9155678381231830935
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4839596251455096573}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.4, y: 1.273, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6432448831601065388}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4843663588801700723
 GameObject:
   m_ObjectHideFlags: 0
@@ -1961,6 +1992,7 @@ Transform:
   - {fileID: 3043878271810135874}
   - {fileID: 5450585009616286553}
   - {fileID: 8757333251603288823}
+  - {fileID: 9155678381231830935}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1981,7 +2013,7 @@ MonoBehaviour:
   <Animator>k__BackingField: {fileID: 3961668711824714805}
   <FreeLookMovementSpeed>k__BackingField: 6
   <MainCameraTransform>k__BackingField: {fileID: 0}
-  <RotationDamping>k__BackingField: 7
+  <RotationDamping>k__BackingField: 10
 --- !u!114 &3295695846562634461
 MonoBehaviour:
   m_ObjectHideFlags: 0
