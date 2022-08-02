@@ -11,6 +11,9 @@ public class PlayerStateMachine : StateMachine
     public CharacterController Controller { get; private set; }
 
     [field: SerializeField]
+    public Targeter Targeter { get; private set; }
+
+    [field: SerializeField]
     public Animator Animator { get; private set; }
   
     [field: SerializeField]
