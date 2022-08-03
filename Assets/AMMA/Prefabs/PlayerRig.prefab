@@ -218,8 +218,8 @@ MonoBehaviour:
   m_MaxDollyOut: 5000
   m_MinimumDistance: 1
   m_MaximumDistance: 5000
-  m_MinimumFOV: 3
-  m_MaximumFOV: 60
+  m_MinimumFOV: 50
+  m_MaximumFOV: 50
   m_MinimumOrthoSize: 1
   m_MaximumOrthoSize: 5000
 --- !u!114 &4918250558118150881
@@ -235,13 +235,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: 0, z: -10}
+  m_FollowOffset: {x: 0, y: 1, z: -3.71}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
   m_AngularDampingMode: 0
   m_PitchDamping: 0
-  m_YawDamping: 0
+  m_YawDamping: 1.5
   m_RollDamping: 0
   m_AngularDamping: 0
 --- !u!1 &7172411864493613360
@@ -299,7 +299,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 2535841990147258519}
   m_Follow: {fileID: 936115034180511760}
   m_Lens:
-    FieldOfView: 40
+    FieldOfView: 100
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -498,7 +498,7 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 755042755766865264}
+  m_LookAt: {fileID: 6944840300951496671}
   m_Follow: {fileID: 936115034180511760}
   m_CommonLens: 1
   m_Lens:
@@ -574,11 +574,11 @@ MonoBehaviour:
   m_SplineCurvature: 0.2
   m_Orbits:
   - m_Height: 2.5
-    m_Radius: 3.53
+    m_Radius: 3.71
   - m_Height: 0.5
-    m_Radius: 3.53
+    m_Radius: 3.71
   - m_Height: -0.75
-    m_Radius: 3.53
+    m_Radius: 3.71
   m_LegacyHeadingBias: 3.4028235e+38
   m_Rigs:
   - {fileID: 8828513483491735213}
@@ -1824,11 +1824,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e84b8e2c9eac3f4986e9c4c27a8c2b6, type: 3}
---- !u!4 &755042755766865264 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9155678381231830935, guid: 4e84b8e2c9eac3f4986e9c4c27a8c2b6, type: 3}
-  m_PrefabInstance: {fileID: 8463938910362057447}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &936115034180511760 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8757333251603288823, guid: 4e84b8e2c9eac3f4986e9c4c27a8c2b6, type: 3}
@@ -1842,5 +1837,10 @@ Transform:
 --- !u!95 &4868214365979662034 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 3961668711824714805, guid: 4e84b8e2c9eac3f4986e9c4c27a8c2b6, type: 3}
+  m_PrefabInstance: {fileID: 8463938910362057447}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6944840300951496671 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1519108273087405368, guid: 4e84b8e2c9eac3f4986e9c4c27a8c2b6, type: 3}
   m_PrefabInstance: {fileID: 8463938910362057447}
   m_PrefabAsset: {fileID: 0}

@@ -17,13 +17,14 @@ public class Targeter : MonoBehaviour
         if (!other.TryGetComponent<Target>(out Target target)) { return; }
 
         targets.Add(target);
+        target.OnDestroyed += RemoveTarget;
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (!other.TryGetComponent<Target>(out Target target)) { return; }
 
-        targets.Remove(target);
+        RemoveTarget(target);
     }
 
     public bool SelectTarget()
@@ -42,5 +43,22 @@ public class Targeter : MonoBehaviour
 
         cineTargetGroup.RemoveMember(CurrentTarget.transform);
         CurrentTarget = null;
+    }
+    private void RemoveTarget(Target target)
+    {
+        if(CurrentTarget == null) { return; }
+    
+        else if(CurrentTarget = target)
+        {
+            cineTargetGroup.RemoveMember(CurrentTarget.transform);
+            CurrentTarget = null;
+        }
+
+        else
+        {
+            target.OnDestroyed -= RemoveTarget;
+            targets.Remove(target);
+        }
+    
     }
 }
