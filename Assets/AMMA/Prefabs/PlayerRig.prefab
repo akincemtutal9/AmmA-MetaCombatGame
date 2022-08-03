@@ -49,8 +49,8 @@ MonoBehaviour:
   m_UpdateMethod: 2
   m_Targets:
   - target: {fileID: 936115034180511760}
-    weight: 1
-    radius: 0
+    weight: 0.25
+    radius: 2
 --- !u!1 &2642993369387052124
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,9 +108,7 @@ MonoBehaviour:
   m_AnimatedTarget: {fileID: 4868214365979662034}
   m_LayerIndex: 0
   m_ShowDebugText: 0
-  m_ChildCameras:
-  - {fileID: 3387034025994368177}
-  - {fileID: 8828513482466403188}
+  m_ChildCameras: []
   m_Instructions:
   - m_FullHash: 585382737
     m_VirtualCamera: {fileID: 8828513482466403188}
@@ -1808,6 +1806,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 3.5587513
       objectReference: {fileID: 0}
+    - target: {fileID: 9156799192929162829, guid: 4e84b8e2c9eac3f4986e9c4c27a8c2b6, type: 3}
+      propertyPath: cineTargetGroup
+      value: 
+      objectReference: {fileID: 2365666043461732889}
     - target: {fileID: 9176178847080635059, guid: 4e84b8e2c9eac3f4986e9c4c27a8c2b6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 71.216286
