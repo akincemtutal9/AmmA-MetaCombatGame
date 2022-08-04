@@ -41,9 +41,6 @@ public class Targeter : MonoBehaviour
         Target closestTarget = null;
         float closestTargetDistance = Mathf.Infinity;
 
-
-
-
         foreach (Target target in targets)
         {
             Vector2 viewPos = mainCamera.WorldToViewportPoint(target.transform.position);
@@ -56,8 +53,6 @@ public class Targeter : MonoBehaviour
             {
                 closestTarget = target;
                 closestTargetDistance = toCenter.sqrMagnitude;
-
-
             }
         }
 
