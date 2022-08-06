@@ -23,6 +23,9 @@ public class PlayerStateMachine : StateMachine
     public ForceReceiver ForceReceiver { get; private set; }
 
     [field: SerializeField]
+    public Attack[] Attacks { get; private set; }
+
+    [field: SerializeField]
     public float FreeLookMovementSpeed { get; private set; }
 
     [field: SerializeField]
