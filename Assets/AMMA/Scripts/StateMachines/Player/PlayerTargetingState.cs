@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerTargetingState : PlayerBaseState
@@ -9,13 +7,13 @@ public class PlayerTargetingState : PlayerBaseState
     private readonly int TargetingForwardHash = Animator.StringToHash("TargetingForward");
     private readonly int TargetingRightHash = Animator.StringToHash("TargetingRight");
     private const float AnimatorDampTime = 0.1f;
-
+    private const float CrossFadeDuration = 0.1f;
     public PlayerTargetingState(PlayerStateMachine stateMachine) : base(stateMachine) { }
 
     public override void Enter()
     {
         stateMachine.InputReader.CancelEvent += OnCancel;
-        stateMachine.Animator.Play(TargetingBlendTreeHash);
+        stateMachine.Animator.CrossFadeInFixedTime(TargetingBlendTreeHash,CrossFadeDuration);
     }
 
     public override void Tick(float deltaTime)
@@ -25,8 +23,6 @@ public class PlayerTargetingState : PlayerBaseState
             stateMachine.SwitchState(new PlayerAttackingState(stateMachine,0));
             return;
         }
-        
-        
         if(stateMachine.Targeter.CurrentTarget == null)
         {
             stateMachine.SwitchState(new PlayerFreeLookState(stateMachine));
@@ -35,12 +31,8 @@ public class PlayerTargetingState : PlayerBaseState
         //--------------------------------------
         Vector3 movement = CalculateMovement();
         Move(movement * stateMachine.TargetingMovementSpeed, deltaTime);
-
         UpdateAnimator(deltaTime);
-
         FaceTarget();
-        
-    
     }
 
     public override void Exit()
@@ -58,30 +50,31 @@ public class PlayerTargetingState : PlayerBaseState
     private Vector3 CalculateMovement()
     {
         Vector3 movement = new Vector3();
-        movement += stateMachine.transform.right * stateMachine.InputReader.MovementValue.x;
-        movement += stateMachine.transform.forward * stateMachine.InputReader.MovementValue.y;
+        var transform = stateMachine.transform;
+        movement += transform.right * stateMachine.InputReader.MovementValue.x;
+        movement += transform.forward * stateMachine.InputReader.MovementValue.y;
         return movement;
     }
     private void UpdateAnimator(float deltaTime)
     {
         if (stateMachine.InputReader.MovementValue.y == 0)
         {
-            stateMachine.Animator.SetFloat(TargetingForwardHash, 0, 0.1f, deltaTime);
+            stateMachine.Animator.SetFloat(TargetingForwardHash, 0, AnimatorDampTime, deltaTime);
         }
         else
         {
             float value = stateMachine.InputReader.MovementValue.y > 0 ? 1f : -1f;
-            stateMachine.Animator.SetFloat(TargetingForwardHash, value, 0.1f, deltaTime);
+            stateMachine.Animator.SetFloat(TargetingForwardHash, value, AnimatorDampTime, deltaTime);
         }
 
         if (stateMachine.InputReader.MovementValue.x == 0)
         {
-            stateMachine.Animator.SetFloat(TargetingRightHash, 0, 0.1f, deltaTime);
+            stateMachine.Animator.SetFloat(TargetingRightHash, 0, AnimatorDampTime, deltaTime);
         }
         else
         {
             float value = stateMachine.InputReader.MovementValue.x > 0 ? 1f : -1f;
-            stateMachine.Animator.SetFloat(TargetingRightHash, value, 0.1f, deltaTime);
+            stateMachine.Animator.SetFloat(TargetingRightHash, value, AnimatorDampTime, deltaTime);
         }
     }
 
