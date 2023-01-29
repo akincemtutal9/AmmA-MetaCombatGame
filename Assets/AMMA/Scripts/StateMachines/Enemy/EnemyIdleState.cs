@@ -20,7 +20,7 @@ public class EnemyIdleState : EnemyBaseState
         
         if (IsInChaseRange())
         {
-            Debug.Log("In range");
+            stateMachine.SwitchState(new EnemyChaseState(stateMachine));
             // transition to chase state
             
             return;
