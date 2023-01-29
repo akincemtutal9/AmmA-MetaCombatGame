@@ -1,8 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-
 // We make this class abstract so we can inherit the states for example jumping
 public abstract class State //: MonoBehaviour This class won't need to be inherit Unity
 {
