@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class EnemyIdleState : EnemyBaseState
 {
@@ -15,6 +16,15 @@ public class EnemyIdleState : EnemyBaseState
 
     public override void Tick(float deltaTime)
     {
+        Move(deltaTime);
+        
+        if (IsInChaseRange())
+        {
+            Debug.Log("In range");
+            // transition to chase state
+            
+            return;
+        }
         stateMachine.Animator.SetFloat(SpeedHash,0f,AnimatorDampTime,deltaTime);
     }
     public override void Exit() { }
