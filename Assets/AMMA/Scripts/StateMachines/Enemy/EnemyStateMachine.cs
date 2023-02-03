@@ -32,6 +32,9 @@ public class EnemyStateMachine : StateMachine
     [field: SerializeField]
     public int AttackDamage { get; private set; }
     
+    [field: SerializeField]
+    public float AttackKnockback { get; private set; }
+    
     public GameObject Player { get; private set; }
     private void Start()
     {
