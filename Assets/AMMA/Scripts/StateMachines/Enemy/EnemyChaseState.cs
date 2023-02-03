@@ -21,14 +21,8 @@ public class EnemyChaseState : EnemyBaseState
             stateMachine.SwitchState(new EnemyIdleState(stateMachine));
             return;
         }
-        else if (IsInAttackRange())
-        {
-            stateMachine.SwitchState(new EnemyAttackingState(stateMachine));
-            return;
-        }
-        
+
         MoveToPlayer(deltaTime);
-        FacePlayer();
         stateMachine.Animator.SetFloat(SpeedHash,1f,AnimatorDampTime,deltaTime);
     }
 
