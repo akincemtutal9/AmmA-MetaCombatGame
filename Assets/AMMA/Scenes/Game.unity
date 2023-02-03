@@ -1051,7 +1051,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8828513482072934857, guid: a75190c7950151740a5f184c81f30c11, type: 3}
       propertyPath: m_FollowOffset.y
-      value: 2.5
+      value: -0.75
       objectReference: {fileID: 0}
     - target: {fileID: 8828513482072934857, guid: a75190c7950151740a5f184c81f30c11, type: 3}
       propertyPath: m_FollowOffset.z
@@ -1115,7 +1115,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8828513482584191587, guid: a75190c7950151740a5f184c81f30c11, type: 3}
       propertyPath: m_FollowOffset.y
-      value: 2.5
+      value: -0.75
       objectReference: {fileID: 0}
     - target: {fileID: 8828513482584191587, guid: a75190c7950151740a5f184c81f30c11, type: 3}
       propertyPath: m_FollowOffset.z
@@ -1155,15 +1155,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8828513483491735212, guid: a75190c7950151740a5f184c81f30c11, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.10805241
+      value: 0.108052395
       objectReference: {fileID: 0}
     - target: {fileID: 8828513483491735212, guid: a75190c7950151740a5f184c81f30c11, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000045894387
+      value: -0.00004588211
       objectReference: {fileID: 0}
     - target: {fileID: 8828513483491735212, guid: a75190c7950151740a5f184c81f30c11, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000049882033
+      value: 0.000004986868
       objectReference: {fileID: 0}
     - target: {fileID: 8828513483491735213, guid: a75190c7950151740a5f184c81f30c11, type: 3}
       propertyPath: m_Lens.m_SensorSize.x
@@ -1195,7 +1195,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8828513483886074299, guid: a75190c7950151740a5f184c81f30c11, type: 3}
       propertyPath: m_FollowOffset.y
-      value: 2.5
+      value: -0.75
       objectReference: {fileID: 0}
     - target: {fileID: 8828513483886074299, guid: a75190c7950151740a5f184c81f30c11, type: 3}
       propertyPath: m_FollowOffset.z
