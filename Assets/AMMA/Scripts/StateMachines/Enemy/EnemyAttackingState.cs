@@ -18,6 +18,10 @@ public class EnemyAttackingState : EnemyBaseState
 
     public override void Tick(float deltaTime)
     {
+        if (GetNormalizedTime(stateMachine.Animator) >= 1)
+        {
+            stateMachine.SwitchState(new EnemyChaseState(stateMachine));
+        }
     }
 
     public override void Exit()
