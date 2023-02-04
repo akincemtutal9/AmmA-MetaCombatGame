@@ -2172,6 +2172,7 @@ MonoBehaviour:
   <MainCameraTransform>k__BackingField: {fileID: 0}
   <ForceReceiver>k__BackingField: {fileID: 3266399134012276825}
   <WeaponDamage>k__BackingField: {fileID: 655260631942618107}
+  <Health>k__BackingField: {fileID: 7474063703291247923}
   <Attacks>k__BackingField:
   - <AnimationName>k__BackingField: Attack1
     <TransitionDuration>k__BackingField: 0.1

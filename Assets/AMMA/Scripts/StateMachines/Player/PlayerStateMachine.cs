@@ -25,6 +25,9 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] 
     public WeaponDamage WeaponDamage { get; private set; }
     
+    [field: SerializeField] 
+    public Health Health { get; private set; }
+    
     [field: SerializeField]
     public Attack[] Attacks { get; private set; }
 
@@ -44,6 +47,20 @@ public class PlayerStateMachine : StateMachine
         
         SwitchState(new PlayerFreeLookState(this));
     }
- 
+    
+    private void OnEnable()
+    {
+        Health.OnTakeDamage += HandleTakeDamage;
+    }
+
+    private void OnDisable()
+    {
+        Health.OnTakeDamage -= HandleTakeDamage;
+    }
+
+    private void HandleTakeDamage()
+    {
+        SwitchState(new PlayerImpactState(this));
+    }
 
 }
