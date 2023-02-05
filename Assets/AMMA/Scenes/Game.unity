@@ -532,7 +532,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 50
+  field of view: 40
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -557,8 +557,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.13126245, y: 0, z: 0, w: 0.9913477}
-  m_LocalPosition: {x: 0, y: 2.273, z: -3.71}
+  m_LocalRotation: {x: 0.08995154, y: -0.000045948087, z: 0.000004149924, w: 0.99594617}
+  m_LocalPosition: {x: 0, y: 1.773, z: -3.71}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1649,9 +1649,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2102750358875124258, guid: a75190c7950151740a5f184c81f30c11, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9913477
+      objectReference: {fileID: 0}
+    - target: {fileID: 2102750358875124258, guid: a75190c7950151740a5f184c81f30c11, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.13126245
+      objectReference: {fileID: 0}
+    - target: {fileID: 2535841990147258519, guid: a75190c7950151740a5f184c81f30c11, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2535841990147258519, guid: a75190c7950151740a5f184c81f30c11, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.8424082
+      objectReference: {fileID: 0}
     - target: {fileID: 3387034025994368177, guid: a75190c7950151740a5f184c81f30c11, type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 2.6289382
+      value: 2.1163337
       objectReference: {fileID: 0}
     - target: {fileID: 4605828346699213837, guid: a75190c7950151740a5f184c81f30c11, type: 3}
       propertyPath: m_IsActive
@@ -1663,11 +1679,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8828513482072934857, guid: a75190c7950151740a5f184c81f30c11, type: 3}
       propertyPath: m_FollowOffset.y
-      value: 0.5
+      value: -0.554848
       objectReference: {fileID: 0}
     - target: {fileID: 8828513482072934857, guid: a75190c7950151740a5f184c81f30c11, type: 3}
       propertyPath: m_FollowOffset.z
-      value: -3.71
+      value: -3.756719
+      objectReference: {fileID: 0}
+    - target: {fileID: 8828513482466403188, guid: a75190c7950151740a5f184c81f30c11, type: 3}
+      propertyPath: m_Lens.m_SensorSize.x
+      value: 2.1163337
       objectReference: {fileID: 0}
     - target: {fileID: 8828513482466403191, guid: a75190c7950151740a5f184c81f30c11, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1699,11 +1719,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8828513482584191587, guid: a75190c7950151740a5f184c81f30c11, type: 3}
       propertyPath: m_FollowOffset.y
-      value: 0.5
+      value: -0.554848
       objectReference: {fileID: 0}
     - target: {fileID: 8828513482584191587, guid: a75190c7950151740a5f184c81f30c11, type: 3}
       propertyPath: m_FollowOffset.z
-      value: -3.71
+      value: -3.756719
       objectReference: {fileID: 0}
     - target: {fileID: 8828513482861742096, guid: a75190c7950151740a5f184c81f30c11, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1727,7 +1747,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8828513482861742097, guid: a75190c7950151740a5f184c81f30c11, type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 2.6289382
+      value: 2.1163337
       objectReference: {fileID: 0}
     - target: {fileID: 8828513483491735212, guid: a75190c7950151740a5f184c81f30c11, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1743,19 +1763,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8828513483491735212, guid: a75190c7950151740a5f184c81f30c11, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.10805238
+      value: 0.10805241
       objectReference: {fileID: 0}
     - target: {fileID: 8828513483491735212, guid: a75190c7950151740a5f184c81f30c11, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00004585249
+      value: -0.000045894387
       objectReference: {fileID: 0}
     - target: {fileID: 8828513483491735212, guid: a75190c7950151740a5f184c81f30c11, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000004983648
+      value: 0.0000049882033
       objectReference: {fileID: 0}
     - target: {fileID: 8828513483491735213, guid: a75190c7950151740a5f184c81f30c11, type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 2.6289382
+      value: 2.1163337
       objectReference: {fileID: 0}
     - target: {fileID: 8828513483571845390, guid: a75190c7950151740a5f184c81f30c11, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1771,23 +1791,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8828513483571845390, guid: a75190c7950151740a5f184c81f30c11, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00004598236
+      value: -0.000045948087
       objectReference: {fileID: 0}
     - target: {fileID: 8828513483571845390, guid: a75190c7950151740a5f184c81f30c11, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000004153019
+      value: 0.000004149924
       objectReference: {fileID: 0}
     - target: {fileID: 8828513483571845391, guid: a75190c7950151740a5f184c81f30c11, type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 2.6289382
+      value: 2.1163337
       objectReference: {fileID: 0}
     - target: {fileID: 8828513483886074299, guid: a75190c7950151740a5f184c81f30c11, type: 3}
       propertyPath: m_FollowOffset.y
-      value: 0.5
+      value: -0.554848
       objectReference: {fileID: 0}
     - target: {fileID: 8828513483886074299, guid: a75190c7950151740a5f184c81f30c11, type: 3}
       propertyPath: m_FollowOffset.z
-      value: -3.71
+      value: -3.756719
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a75190c7950151740a5f184c81f30c11, type: 3}

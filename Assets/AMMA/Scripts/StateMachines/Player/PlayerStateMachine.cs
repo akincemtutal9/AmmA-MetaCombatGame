@@ -29,6 +29,9 @@ public class PlayerStateMachine : StateMachine
     public Health Health { get; private set; }
     
     [field: SerializeField]
+    public Ragdoll Ragdoll { get; private set; }
+    
+    [field: SerializeField]
     public Attack[] Attacks { get; private set; }
 
     [field: SerializeField]
@@ -51,11 +54,13 @@ public class PlayerStateMachine : StateMachine
     private void OnEnable()
     {
         Health.OnTakeDamage += HandleTakeDamage;
+        Health.OnDie += HandleDie;
     }
 
     private void OnDisable()
     {
         Health.OnTakeDamage -= HandleTakeDamage;
+        Health.OnDie -= HandleDie;
     }
 
     private void HandleTakeDamage()
@@ -63,4 +68,8 @@ public class PlayerStateMachine : StateMachine
         SwitchState(new PlayerImpactState(this));
     }
 
+    private void HandleDie()
+    {
+        SwitchState(new PlayerDeadState(this));
+    }
 }
