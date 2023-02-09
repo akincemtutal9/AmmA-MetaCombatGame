@@ -50,8 +50,9 @@ public class EnemyChaseState : EnemyBaseState
 
     private bool IsInAttackRange()
     {
+        if (stateMachine.Player.isDead) { return false;}
+        
         var playerDistanceSqr = (stateMachine.Player.transform.position - stateMachine.transform.position).sqrMagnitude;
-
         return playerDistanceSqr <= Mathf.Pow(stateMachine.AttackRange,2);
     }
 
