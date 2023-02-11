@@ -48,11 +48,6 @@ public class PlayerStateMachine : StateMachine
 
     [field: SerializeField] 
     public float DodgeLength { get; private set; }
-
-    [field: SerializeField]
-    public float DodgeCooldown { get; private set; }
-    public Vector2 DodgingDirectionInput { get; set; }
-    public float RemainingDodgeTime { get; set; }
     public float PreviousDodgeTime { get; private set; } = Mathf.NegativeInfinity;
     
     [field: SerializeField]
@@ -84,19 +79,4 @@ public class PlayerStateMachine : StateMachine
     {
         SwitchState(new PlayerDeadState(this));
     }
-    public void OnDodge()
-    {
-        if (Time.time - PreviousDodgeTime < DodgeCooldown)
-        {
-            return;
-        }
-        SetDodgeTime(Time.time);
-        DodgingDirectionInput = InputReader.MovementValue;
-        RemainingDodgeTime = DodgeDuration;
-    }
-    public void SetDodgeTime(float dodgeTime)
-    {
-        PreviousDodgeTime = dodgeTime;
-    }
-    
 }

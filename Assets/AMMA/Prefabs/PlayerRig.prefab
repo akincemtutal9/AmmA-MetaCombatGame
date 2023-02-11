@@ -1393,6 +1393,14 @@ PrefabInstance:
       value: 23.85932
       objectReference: {fileID: 0}
     - target: {fileID: 3001717160572865749, guid: 4e84b8e2c9eac3f4986e9c4c27a8c2b6, type: 3}
+      propertyPath: <DodgeLength>k__BackingField
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3001717160572865749, guid: 4e84b8e2c9eac3f4986e9c4c27a8c2b6, type: 3}
+      propertyPath: <DodgeDuration>k__BackingField
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3001717160572865749, guid: 4e84b8e2c9eac3f4986e9c4c27a8c2b6, type: 3}
       propertyPath: <Attacks>k__BackingField.Array.data[0].<Knockback>k__BackingField
       value: 5
       objectReference: {fileID: 0}
