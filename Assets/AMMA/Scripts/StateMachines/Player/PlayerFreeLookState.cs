@@ -17,6 +17,8 @@ public class PlayerFreeLookState : PlayerBaseState
     {
         stateMachine.InputReader.DodgeEvent += stateMachine.OnDodge; 
         stateMachine.InputReader.TargetEvent += OnTarget;
+        stateMachine.InputReader.JumpEvent += OnJump;
+        
         stateMachine.Animator.CrossFadeInFixedTime(FreeLookBlendTreeHash,CrossFadeInFixedTime);
     }
     public override void Tick(float deltaTime)
@@ -48,8 +50,8 @@ public class PlayerFreeLookState : PlayerBaseState
     public override void Exit()
     {
         stateMachine.InputReader.TargetEvent -= OnTarget;
-        stateMachine.InputReader.DodgeEvent += stateMachine.OnDodge; 
-
+        stateMachine.InputReader.DodgeEvent -= stateMachine.OnDodge;
+        stateMachine.InputReader.JumpEvent -= OnJump;
     }
     private Vector3 CalculateMovement(float deltatime)
     {
@@ -87,5 +89,9 @@ public class PlayerFreeLookState : PlayerBaseState
         if (!stateMachine.Targeter.SelectTarget()) { return; }
         
         stateMachine.SwitchState(new PlayerTargetingState(stateMachine));
+    }
+    private void OnJump()
+    {
+        stateMachine.SwitchState(new PlayerJumpingState(stateMachine));
     }
 }

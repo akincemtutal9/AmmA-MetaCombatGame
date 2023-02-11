@@ -55,6 +55,9 @@ public class PlayerStateMachine : StateMachine
     public float RemainingDodgeTime { get; set; }
     public float PreviousDodgeTime { get; private set; } = Mathf.NegativeInfinity;
     
+    [field: SerializeField]
+    public float JumpForce { get; private set; }
+    
     private void Start()
     {
         MainCameraTransform = Camera.main.transform;
