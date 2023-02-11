@@ -13,6 +13,7 @@ public class PlayerTargetingState : PlayerBaseState
     public override void Enter()
     {
         stateMachine.InputReader.CancelEvent += OnCancel;
+        stateMachine.InputReader.DodgeEvent += stateMachine.OnDodge; 
         stateMachine.Animator.CrossFadeInFixedTime(TargetingBlendTreeHash,CrossFadeDuration);
     }
 
@@ -37,7 +38,7 @@ public class PlayerTargetingState : PlayerBaseState
             return;
         }
         //--------------------------------------
-        Vector3 movement = CalculateMovement();
+        Vector3 movement = CalculateMovement(deltaTime);
         Move(movement * stateMachine.TargetingMovementSpeed, deltaTime);
         UpdateAnimator(deltaTime);
         FaceTarget();
@@ -46,6 +47,8 @@ public class PlayerTargetingState : PlayerBaseState
     public override void Exit()
     {
         stateMachine.InputReader.CancelEvent -= OnCancel;
+        stateMachine.InputReader.DodgeEvent -= stateMachine.OnDodge; 
+
     }
 
     private void OnCancel()
@@ -54,13 +57,25 @@ public class PlayerTargetingState : PlayerBaseState
 
         stateMachine.SwitchState(new PlayerFreeLookState(stateMachine));
     }
-
-    private Vector3 CalculateMovement()
+    
+    private Vector3 CalculateMovement(float deltatime)
     {
         Vector3 movement = new Vector3();
         var transform = stateMachine.transform;
-        movement += transform.right * stateMachine.InputReader.MovementValue.x;
-        movement += transform.forward * stateMachine.InputReader.MovementValue.y;
+
+        if (stateMachine.RemainingDodgeTime > 0f)
+        {
+            movement += transform.right * stateMachine.DodgingDirectionInput.x * stateMachine.DodgeLength / stateMachine.DodgeDuration;
+            movement += transform.forward * stateMachine.DodgingDirectionInput.y * stateMachine.DodgeLength / stateMachine.DodgeDuration;
+            
+            stateMachine.RemainingDodgeTime = Mathf.Max(stateMachine.RemainingDodgeTime - deltatime, 0);
+        }
+        else
+        {
+            movement += transform.right * stateMachine.InputReader.MovementValue.x;
+            movement += transform.forward * stateMachine.InputReader.MovementValue.y;
+        }
+       
         return movement;
     }
     private void UpdateAnimator(float deltaTime)

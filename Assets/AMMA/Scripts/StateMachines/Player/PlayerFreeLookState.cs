@@ -15,6 +15,7 @@ public class PlayerFreeLookState : PlayerBaseState
 
     public override void Enter()
     {
+        stateMachine.InputReader.DodgeEvent += stateMachine.OnDodge; 
         stateMachine.InputReader.TargetEvent += OnTarget;
         stateMachine.Animator.CrossFadeInFixedTime(FreeLookBlendTreeHash,CrossFadeInFixedTime);
     }
@@ -27,7 +28,7 @@ public class PlayerFreeLookState : PlayerBaseState
         }
 
         //------------------------------------------
-        Vector3 movement = CalculateMovement();
+        Vector3 movement = CalculateMovement(deltaTime);
 
         Move(movement * stateMachine.FreeLookMovementSpeed, deltaTime);
         
@@ -47,9 +48,22 @@ public class PlayerFreeLookState : PlayerBaseState
     public override void Exit()
     {
         stateMachine.InputReader.TargetEvent -= OnTarget;
+        stateMachine.InputReader.DodgeEvent += stateMachine.OnDodge; 
+
     }
-    private Vector3 CalculateMovement()
+    private Vector3 CalculateMovement(float deltatime)
     {
+        Vector3 movement = new Vector3();
+
+        if (stateMachine.RemainingDodgeTime > 0f)
+        {
+            movement += stateMachine.MainCameraTransform.right * (stateMachine.DodgingDirectionInput.x * stateMachine.DodgeLength) / stateMachine.DodgeDuration;
+            movement += stateMachine.MainCameraTransform.forward * (stateMachine.DodgingDirectionInput.y * stateMachine.DodgeLength) / stateMachine.DodgeDuration;
+
+            stateMachine.RemainingDodgeTime = Mathf.Max(stateMachine.RemainingDodgeTime - deltatime, 0);
+            return movement;
+        }
+
         Vector3 forward = stateMachine.MainCameraTransform.forward;
         Vector3 right = stateMachine.MainCameraTransform.right;
 
@@ -59,8 +73,10 @@ public class PlayerFreeLookState : PlayerBaseState
         forward.Normalize();
         right.Normalize();
 
-        return forward * stateMachine.InputReader.MovementValue.y + right * stateMachine.InputReader.MovementValue.x; 
+        return forward * stateMachine.InputReader.MovementValue.y +
+               right * stateMachine.InputReader.MovementValue.x;
     }
+
     private void FaceMovementDirection(Vector3 movement , float deltaTime)
     {
         stateMachine.transform.rotation = Quaternion.Lerp(stateMachine.transform.rotation, Quaternion.LookRotation(movement), deltaTime * stateMachine.RotationDamping);
@@ -72,5 +88,4 @@ public class PlayerFreeLookState : PlayerBaseState
         
         stateMachine.SwitchState(new PlayerTargetingState(stateMachine));
     }
-    
 }

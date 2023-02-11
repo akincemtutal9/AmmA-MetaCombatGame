@@ -43,14 +43,24 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField]
     public float RotationDamping{ get; private set; }
     
-    // Start is called before the first frame update
+    [field: SerializeField] 
+    public float DodgeDuration { get; private set; }
+
+    [field: SerializeField] 
+    public float DodgeLength { get; private set; }
+
+    [field: SerializeField]
+    public float DodgeCooldown { get; private set; }
+    public Vector2 DodgingDirectionInput { get; set; }
+    public float RemainingDodgeTime { get; set; }
+    public float PreviousDodgeTime { get; private set; } = Mathf.NegativeInfinity;
+    
     private void Start()
     {
         MainCameraTransform = Camera.main.transform;
         
         SwitchState(new PlayerFreeLookState(this));
     }
-    
     private void OnEnable()
     {
         Health.OnTakeDamage += HandleTakeDamage;
@@ -67,9 +77,23 @@ public class PlayerStateMachine : StateMachine
     {
         SwitchState(new PlayerImpactState(this));
     }
-
     private void HandleDie()
     {
         SwitchState(new PlayerDeadState(this));
     }
+    public void OnDodge()
+    {
+        if (Time.time - PreviousDodgeTime < DodgeCooldown)
+        {
+            return;
+        }
+        SetDodgeTime(Time.time);
+        DodgingDirectionInput = InputReader.MovementValue;
+        RemainingDodgeTime = DodgeDuration;
+    }
+    public void SetDodgeTime(float dodgeTime)
+    {
+        PreviousDodgeTime = dodgeTime;
+    }
+    
 }
