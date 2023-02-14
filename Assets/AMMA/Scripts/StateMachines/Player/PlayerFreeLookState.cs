@@ -32,7 +32,6 @@ public class PlayerFreeLookState : PlayerBaseState
         if (stateMachine.InputReader.MovementValue == Vector2.zero) 
         {
             stateMachine.Animator.SetFloat(FreeLookSpeedHash, 0, AnimatorDampTime, deltaTime);
-            
             return; 
         }
         else 
@@ -49,8 +48,6 @@ public class PlayerFreeLookState : PlayerBaseState
     }
     private Vector3 CalculateMovement(float deltatime)
     {
-        Vector3 movement = new Vector3();
-        
         Vector3 forward = stateMachine.MainCameraTransform.forward;
         Vector3 right = stateMachine.MainCameraTransform.right;
 

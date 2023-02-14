@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/AMMA/Scenes/New Scene.unity
+    guid: 478d8d2cb2024e242a735bc572c8f160
   m_configObjects: {}
